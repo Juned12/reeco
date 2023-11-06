@@ -1,0 +1,24 @@
+.reeco-btn {
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+    display: inline-block;
+    border: none;
+    text-decoration: none;
+}
+
+.reeco-green-btn {
+    background-color: green;
+    color: white;
+}
+
+.reeco-trans-btn {
+    background-color: white;
+    color: green;
+    border: 1px solid green;
+}
