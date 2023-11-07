@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## BE Setup
+
+To simulate a BE API call json-server has been used which can be ran using json-server --watch order.json --port 3030 and base url is to be updated in .env file 
+
 ## Available Scripts
 
 In the project directory, you can run:
