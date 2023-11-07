@@ -93,7 +93,7 @@ const OrderItems = ({
                                                             }}
                                                             style={{color: ["Missing", "Missing-Urgent"].includes(order?.status) ? "red": "black"}}
                                                         />
-                                                        <span className="pointer">Edit  </span>
+                                                        <span className="pointer">Edit</span>
                                                     </>
                                                 }
                                             </td>
