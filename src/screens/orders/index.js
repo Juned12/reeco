@@ -1,14 +1,68 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { GetOrderItems, GetOrderSummary, UpdateOrderItemStatus } from "../../services/order";
 import Button from "../../component/button";
-import "./index.scss"
 import OrderSummary from "./orderSummary";
 import TextInput from "../../component/textInput";
 import OrderItems from "./orderItems";
+import MissingProductModal from "./orderItems/missingProductModal";
+import "./index.scss";
 
 const Orders = () => {
 
+    const [orderData, setOrderData] = useState([]);
+    const [orderSummary, setOrderSummary] = useState({});
+    const [missingData, setMissingData] = useState({})
+
+    useEffect(()=>{
+        getOrderItems()
+        getOrderSummary()
+    },[])
+
+    const getOrderItems = () => {
+        GetOrderItems()
+        .then((res)=>{
+            setOrderData(res.data)
+        })
+    }
+
+    const getOrderSummary = () => {
+        GetOrderSummary()
+        .then((res)=>{
+            setOrderSummary(res.data)
+        })
+    }
+
+    const markApproved = (id) => {
+        UpdateOrderItemStatus(id, {isApproved: true, status: "Approved"})
+        .then(()=>{
+            getOrderItems()
+        })
+    }
+
+    const markMissing = (data) => {
+        setMissingData({
+            isOpen: true,
+            ...data
+        })
+    }
+
+    const updateStatus = (urgent) => {
+        const status = urgent ? "Missing-Urgent" : "Missing"
+        UpdateOrderItemStatus(missingData?.id, {status: status, isApproved: false})
+        .then(()=>{
+            setMissingData({})
+            getOrderItems()
+        })
+    }
+
     return (
         <>
+            <MissingProductModal
+                isOpen={missingData?.isOpen}
+                productName={missingData?.productName}
+                toggleModal={()=>setMissingData({})}
+                updateStatus={(data)=> updateStatus(data)}
+            />
             <div className="order-header-wrap ps-5 pt-2 pb-2">
                 <div className="ps-5">
                     <span className="order-font pe-2">
@@ -42,7 +96,7 @@ const Orders = () => {
                 </div>
             </div>
             <div className="mt-4 mb-4 ps-5 pe-5">
-                <OrderSummary />
+                <OrderSummary orderSummary={orderSummary}/>
             </div>
             <div className="order-details-wrap">
                 <div className="d-flex justify-content-between align-items-center">
@@ -61,11 +115,16 @@ const Orders = () => {
                             classname="me-5"
                         />
                         <div>
-                        <i className="fa fa-print"></i>
+                        <i className="fa fa-print print-icon" ></i>
                         </div>
                     </div>
                 </div>
-                <OrderItems />
+                <OrderItems 
+                    orderData={orderData} 
+                    markApproved={markApproved} 
+                    markMissing={markMissing}
+                    shippingDate={orderSummary?.shippingDate}
+                />
             </div>
         </>
     )

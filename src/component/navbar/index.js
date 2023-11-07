@@ -6,7 +6,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav class="navbar ps-5 pe-5 reco-navbar">
+            <nav className="navbar ps-5 pe-5 reco-navbar">
                 <div className="d-flex align-items-center">
                     <span className="reeco-brand ps-5">Reeco</span>
                     <span className="nav-option ps-5">Store</span>

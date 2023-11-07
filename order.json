@@ -1,0 +1,68 @@
+{
+  "orders": [
+    {
+      "productName": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+      "brand": "Finibus Bonorum et Malorum",
+      "price": 60.67,
+      "hasUpdateQuantity": false,
+      "quantity": 0,
+      "status": "Missing",
+      "hasUpdatedPrice": false,
+      "total": 0,
+      "previousTotal": 0,
+      "previousPrice": 15,
+      "id": 1,
+      "isApproved": false
+    },
+    {
+      "productName": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+      "brand": "Finibus Bonorum et Malorum",
+      "price": 60.67,
+      "hasUpdateQuantity": false,
+      "quantity": 15,
+      "status": "Missing",
+      "hasUpdatedPrice": false,
+      "total": 9000.88,
+      "previousTotal": 0,
+      "previousPrice": 0,
+      "id": 2,
+      "isApproved": false
+    },
+    {
+      "productName": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+      "brand": "Finibus Bonorum et Malorum",
+      "price": 60.67,
+      "hasUpdateQuantity": false,
+      "quantity": 15,
+      "status": "Approved",
+      "hasUpdatedPrice": false,
+      "total": 9000.88,
+      "previousTotal": 0,
+      "previousPrice": 15,
+      "id": 3,
+      "isApproved": true
+    },
+    {
+      "productName": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+      "brand": "Finibus Bonorum et Malorum",
+      "price": 60.67,
+      "hasUpdateQuantity": false,
+      "quantity": 4,
+      "status": "Approved",
+      "hasUpdatedPrice": true,
+      "total": 12654.32,
+      "previousTotal": 3345.32,
+      "previousPrice": 10.43,
+      "id": 4,
+      "isApproved": false
+    }
+  ],
+  "summary": {
+    "supplier": "East Coast Fruits and Vegies",
+    "shippingDate": "11/10/2023",
+    "total": 151021,
+    "category": "",
+    "department": "300-1020-1030",
+    "status": "Awaiting Approval"
+  }
+}

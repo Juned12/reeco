@@ -1,5 +1,56 @@
-.order-thead tr {
-    color: #666666;
-    border: 1px solid #666666;
-    border-radius: 4px 0px 4px 0px;
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+  }
+  
+  th:first-child {
+    border: 1px solid #dee2e6;
+    border-right: none !important;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 0px;
+  }
+  th {
+    border-top: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+    padding: 5px;
+
+  }
+  th:last-child {
+    border: 1px solid #dee2e6;
+    border-left: none !important;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 5px;
+    // background-color: #f0f0f0; /* Add a background color for the header for a rounded appearance */
+  }
+  
+  tbody {
+    border: none;
+  }
+  td {
+    border-bottom: 1px solid #dee2e6;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .product-name {
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+  }
+.product-img {
+    width: 50px;
+    height: 50px;
+}
+.status-chip {
+    padding: 5px 15px 5px 15px;
+    border-radius: 40px;
+    width: fit-content;
+    color: white;
+    font-size: 14px;
+}
+.pointer {
+    cursor: pointer;
+}
+.brand-wrap {
+    width: 12%;
 }

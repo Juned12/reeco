@@ -1,10 +1,12 @@
 import React from "react";
+import { currency_formatter } from "../../../utils/currency_formatter";
 import "./index.scss"
 
 const OrderSummary = ({
-
+    orderSummary
 }) => {
-
+    
+    
     return (
         <>
             <div className="order-summary-wrap ms-5 me-5">
@@ -13,7 +15,7 @@ const OrderSummary = ({
                         Supplier
                     </div>
                     <div className="order-summary-content">
-                        East Coast fruits & vegetables
+                        {orderSummary?.supplier}
                     </div>
                 </div>
                 <div className="border-end ms-4 me-4" />
@@ -22,17 +24,16 @@ const OrderSummary = ({
                         Shipping Date
                     </div>
                     <div className="order-summary-content">
-                        East Coast fruits & vegetables
+                        {new Date(orderSummary?.shippingDate).toDateString()}
                     </div>
                 </div>
                 <div className="border-end ms-4 me-4" />
-            
                 <div className="order-summary-box">
                     <div className="order-summary-head">
                         Total
                     </div>
                     <div className="order-summary-content">
-                        East Coast fruits & vegetables
+                        {currency_formatter(orderSummary?.total)}
                     </div>
                 </div>
                 <div className="border-end ms-4 me-4" />
@@ -50,7 +51,7 @@ const OrderSummary = ({
                         Department
                     </div>
                     <div className="order-summary-content">
-                        East Coast fruits & vegetables
+                        {orderSummary?.department}
                     </div>
                 </div>
                 <div className="border-end ms-4 me-4" />
@@ -59,7 +60,7 @@ const OrderSummary = ({
                         Status
                     </div>
                     <div className="order-summary-content">
-                        East Coast fruits & vegetables
+                        {orderSummary?.status}
                     </div>
                 </div>
             </div>
