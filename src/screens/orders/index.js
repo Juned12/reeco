@@ -19,6 +19,7 @@ const Orders = () => {
     useEffect(()=>{
         getOrderItems()
         getOrderSummary()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     const getOrderItems = () => {
