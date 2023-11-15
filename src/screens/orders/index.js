@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { GetOrderItems, GetOrderSummary, UpdateOrderItemStatus } from "../../services/order";
+import { useDispatch, useSelector } from "react-redux";
+import { setOrderItems, updateOrderItem } from "../../redux/orderItemSlice";
+import { setOrderSummary } from "../../redux/orderSummarySlice";
 import Button from "../../component/button";
 import OrderSummary from "./orderSummary";
 import TextInput from "../../component/textInput";
@@ -9,8 +12,8 @@ import "./index.scss";
 
 const Orders = () => {
 
-    const [orderData, setOrderData] = useState([]);
-    const [orderSummary, setOrderSummary] = useState({});
+    const dispatch = useDispatch()
+    const orderSummary = useSelector((state)=>state.orderSummary.summary)
     const [missingData, setMissingData] = useState({})
 
     useEffect(()=>{
@@ -21,22 +24,20 @@ const Orders = () => {
     const getOrderItems = () => {
         GetOrderItems()
         .then((res)=>{
-            setOrderData(res.data)
+            dispatch(setOrderItems([...res.data]))
         })
     }
 
     const getOrderSummary = () => {
         GetOrderSummary()
         .then((res)=>{
-            setOrderSummary(res.data)
+            dispatch(setOrderSummary(res.data))
         })
     }
 
     const markApproved = (id) => {
+        dispatch(updateOrderItem({id:id, isApproved: true, status: "Approved"}))
         UpdateOrderItemStatus(id, {isApproved: true, status: "Approved"})
-        .then(()=>{
-            getOrderItems()
-        })
     }
 
     const markMissing = (data) => {
@@ -48,10 +49,10 @@ const Orders = () => {
 
     const updateStatus = (urgent) => {
         const status = urgent ? "Missing-Urgent" : "Missing"
+        dispatch(updateOrderItem({id:missingData?.id, status: status, isApproved: false}))
         UpdateOrderItemStatus(missingData?.id, {status: status, isApproved: false})
         .then(()=>{
             setMissingData({})
-            getOrderItems()
         })
     }
 
@@ -96,7 +97,7 @@ const Orders = () => {
                 </div>
             </div>
             <div className="mt-4 mb-4 ps-5 pe-5">
-                <OrderSummary orderSummary={orderSummary}/>
+                <OrderSummary />
             </div>
             <div className="order-details-wrap">
                 <div className="d-flex justify-content-between align-items-center">
@@ -120,7 +121,6 @@ const Orders = () => {
                     </div>
                 </div>
                 <OrderItems 
-                    orderData={orderData} 
                     markApproved={markApproved} 
                     markMissing={markMissing}
                     shippingDate={orderSummary?.shippingDate}

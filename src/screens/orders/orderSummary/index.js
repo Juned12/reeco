@@ -1,11 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { currency_formatter } from "../../../utils/currency_formatter";
 import "./index.scss"
 
-const OrderSummary = ({
-    orderSummary
-}) => {
+const OrderSummary = () => {
     
+    const orderSummary = useSelector((state)=>state.orderSummary.summary)
     
     return (
         <>

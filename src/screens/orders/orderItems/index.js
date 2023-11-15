@@ -1,15 +1,16 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import classNames from "classnames";
 import { avocado } from "../../../assets/images";
 import { currency_formatter } from "../../../utils/currency_formatter";
 import "./index.scss"
 
 const OrderItems = ({
-    orderData,
     markApproved,
     markMissing,
     shippingDate
 }) => {
+    const orderData = useSelector((state) => state.orderItem.orders)
 
     return (
         <>

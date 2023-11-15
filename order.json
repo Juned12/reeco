@@ -6,7 +6,7 @@
       "price": 60.67,
       "hasUpdateQuantity": false,
       "quantity": 0,
-      "status": "Missing",
+      "status": "Missing-Urgent",
       "hasUpdatedPrice": false,
       "total": 0,
       "previousTotal": 0,
@@ -20,13 +20,13 @@
       "price": 60.67,
       "hasUpdateQuantity": false,
       "quantity": 15,
-      "status": "Missing",
+      "status": "Approved",
       "hasUpdatedPrice": false,
       "total": 9000.88,
       "previousTotal": 0,
       "previousPrice": 0,
       "id": 2,
-      "isApproved": false
+      "isApproved": true
     },
     {
       "productName": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
@@ -54,12 +54,12 @@
       "previousTotal": 3345.32,
       "previousPrice": 10.43,
       "id": 4,
-      "isApproved": false
+      "isApproved": true
     }
   ],
   "summary": {
     "supplier": "East Coast Fruits and Vegies",
-    "shippingDate": "11/10/2023",
+    "shippingDate": "12/12/2023",
     "total": 151021,
     "category": "",
     "department": "300-1020-1030",
